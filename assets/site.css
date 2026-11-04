@@ -18,18 +18,6 @@
   --wrap: 1120px;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #171213; --surface: #211A1C; --sunk: #2A2124; --ink: #F3EDEA; --muted: #B5ABA7;
-    --line: #382D30; --rose: #E0577F; --rose-ink: #1A0C11; --berry: #F08AA8; --blush: #3A2229; --tint: #2D1D22;
-    --green: #7FB77A; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #171213; --surface: #211A1C; --sunk: #2A2124; --ink: #F3EDEA; --muted: #B5ABA7;
-  --line: #382D30; --rose: #E0577F; --rose-ink: #1A0C11; --berry: #F08AA8; --blush: #3A2229; --tint: #2D1D22;
-  --green: #7FB77A; color-scheme: dark;
-}
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -70,7 +58,7 @@ p { margin: 0; }
 .hero .cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .hero .note { margin-top: 14px; font-size: 14px; color: var(--muted); }
 /* A phone, drawn the same way wherever one appears. */
-.device { width: 100%; max-width: 300px; margin-inline: auto; padding: 9px; border-radius: 46px; background: #121011; box-shadow: 0 0 0 1px rgba(255, 255, 255, .14), 0 30px 60px -22px rgba(70, 20, 35, .4); }
+.device { width: 100%; max-width: 300px; margin-inline: auto; padding: 9px; border-radius: 46px; background: #121011; box-shadow: 0 30px 60px -22px rgba(70, 20, 35, .4); }
 .device .screen { aspect-ratio: 1206 / 2622; border-radius: 37px; overflow: hidden; background: #F2F0EC; }
 .device img { width: 100%; height: 100%; object-fit: cover; }
 /* The launch screen: the bud on paper, same as the app. */

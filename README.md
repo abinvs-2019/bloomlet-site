@@ -2,7 +2,7 @@
 
 Website for Bloomlet, the dating app where you say hi with a flower. Static HTML and one
 stylesheet (`assets/site.css`), no build step. GitHub Pages serves it at
-superspace.superbits.in and serves each `.html` file without its extension.
+bloomlet.superbits.in and serves each `.html` file without its extension.
 
 ## Pages
 

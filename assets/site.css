@@ -1,4 +1,4 @@
-/* SuperSpace site — same look as the app: paper, rose, Source Serif 4 + DM Sans. */
+/* Bloomlet site — same look as the app: paper, rose, Source Serif 4 + DM Sans. */
 :root {
   --paper: #F2F0EC;
   --surface: #FFFFFF;
@@ -115,6 +115,7 @@ p { margin: 0; }
 /* Feature rows */
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
 .split .shotcol img { width: 280px; max-width: 80%; aspect-ratio: 9 / 15; object-fit: cover; object-position: top; margin: 0 auto; border-radius: 36px; box-shadow: 0 0 0 8px #121011, 0 30px 60px -24px rgba(70, 20, 35, .4); }
+.budcol svg { display: block; width: 170px; max-width: 50%; margin: 0 auto; }
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 36px; } }
 .ticks { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
 .ticks li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; }

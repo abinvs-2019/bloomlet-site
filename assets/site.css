@@ -204,6 +204,7 @@ p { margin: 0; }
 .perk { background: var(--surface); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 6px; }
 .perk-bud { width: 40px; height: 40px; border-radius: 12px; background: var(--tint); display: grid; place-items: center; margin-bottom: 8px; }
 .perk-bud svg { width: 16px; height: auto; }
+.perk-bud svg.ic { width: 24px; height: 24px; color: var(--rose); }
 .perk h3 { font-size: 20px; }
 .perk p { font-size: 15px; color: var(--muted); }
 @media (max-width: 1000px) { .perks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -264,3 +265,31 @@ p { margin: 0; }
   .amb-form { padding: 22px; }
   .amb-form .btn { justify-self: stretch; }
 }
+
+/* Ambassadors: "Do you qualify?" */
+.qz { background: var(--surface); border-radius: 32px; padding: 48px 40px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 40px; align-items: start; }
+.qz h2 { font-size: clamp(32px, 4.4vw, 50px); }
+.qz-bar { margin-top: 26px; height: 6px; border-radius: 6px; background: var(--tint); overflow: hidden; max-width: 320px; }
+.qz-bar span { display: block; height: 100%; width: 0; background: var(--rose); border-radius: inherit; transition: width .35s ease; }
+.qz-body { min-height: 300px; display: grid; align-content: center; }
+.qz-count { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.qz-q { font-size: 26px; margin: 8px 0 20px; text-wrap: balance; }
+.qz-opts { display: grid; gap: 10px; }
+.qz-opt { font: inherit; font-size: 17px; font-weight: 500; text-align: left; color: var(--ink); background: var(--paper); border: 0; border-radius: 16px; padding: 16px 20px; cursor: pointer; box-shadow: inset 0 0 0 1.5px transparent; transition: box-shadow .15s, background .15s; }
+.qz-opt:hover { background: var(--tint); box-shadow: inset 0 0 0 1.5px var(--rose); }
+.qz-opt:focus-visible { outline: 3px solid var(--rose); outline-offset: 2px; }
+.qz-step:not([hidden]) { animation: qz-in .3s ease both; }
+.qz-wait, .qz-ok, .qz-no { display: grid; justify-items: center; text-align: center; gap: 12px; }
+.qz-wait[hidden], .qz-ok[hidden], .qz-no[hidden], .qz-step[hidden] { display: none; }
+.qz-ok:focus, .qz-no:focus { outline: none; }
+.qz-ok h3, .qz-no h3 { font-size: 34px; }
+.qz-ok p, .qz-no p, .qz-wait p { color: var(--muted); max-width: 40ch; }
+.qz-bud { width: 64px; height: 64px; border-radius: 50%; background: var(--tint); display: grid; place-items: center; }
+.qz-bud svg { width: 24px; height: auto; }
+.qz-wait .qz-bud svg { animation: qz-pulse 1s ease-in-out infinite; }
+.qz-ok .qz-bud svg { animation: qz-pop .5s cubic-bezier(.3, 1.6, .5, 1) both; }
+@keyframes qz-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes qz-pulse { 50% { transform: scale(1.25); } }
+@keyframes qz-pop { from { transform: scale(.4); } }
+@media (max-width: 860px) { .qz { grid-template-columns: 1fr; padding: 32px 22px; gap: 24px; } .qz-body { min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .qz-step:not([hidden]), .qz-wait .qz-bud svg, .qz-ok .qz-bud svg { animation: none; } }

@@ -9,6 +9,7 @@ bloomlet.superbits.in and serves each `.html` file without its extension.
 | URL | File |
 |---|---|
 | `/` | `index.html`: the landing page |
+| `/bloomlet-vs-hinge-bumble-tinder` | comparison page for people searching other dating apps |
 | `/terms` | `terms.html`: Terms of Service |
 | `/privacy-policy` | `privacy-policy.html`: Privacy Policy |
 | `/refund-policy` | `refund-policy.html`: Refunds & Cancellations |

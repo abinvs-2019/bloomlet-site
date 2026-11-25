@@ -184,3 +184,82 @@ p { margin: 0; }
 .card p + p { margin-top: 8px; }
 .card a { color: var(--rose); }
 @media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+
+/* Ambassadors: the programme page */
+.amb-art { display: grid; place-items: center; aspect-ratio: 1; max-width: 440px; width: 100%; margin-inline: auto; border-radius: 50%; background: var(--tint); }
+.amb-art svg { width: 78%; height: auto; }
+.journey { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; counter-reset: none; }
+.jstage { background: var(--paper); border-radius: var(--radius); padding: 22px 20px 24px; display: flex; flex-direction: column; gap: 6px; position: relative; }
+.jstage .jart { height: 120px; display: grid; place-items: end center; margin-bottom: 6px; }
+.jstage .jart svg { width: 120px; height: 120px; }
+.jstage .day { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--rose); }
+.jstage h3 { font-size: 22px; }
+.jstage .when { font-size: 14px; font-weight: 700; color: var(--ink); }
+.jstage p { font-size: 15px; color: var(--muted); }
+.jstage:last-child { background: var(--tint); box-shadow: inset 0 0 0 2px var(--rose); }
+@media (max-width: 1000px) { .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); } .jstage:last-child { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .journey { grid-template-columns: 1fr; } }
+.perks { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.perk { background: var(--surface); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.perk-bud { width: 40px; height: 40px; border-radius: 12px; background: var(--tint); display: grid; place-items: center; margin-bottom: 8px; }
+.perk-bud svg { width: 16px; height: auto; }
+.perk h3 { font-size: 20px; }
+.perk p { font-size: 15px; color: var(--muted); }
+@media (max-width: 1000px) { .perks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .perks { grid-template-columns: 1fr; } }
+.amb-who { align-items: start; }
+.amb-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.amb-steps .step { background: var(--surface); }
+@media (max-width: 860px) { .amb-steps { grid-template-columns: 1fr; } }
+.btn.light { background: var(--surface); color: var(--rose); }
+
+/* Ambassadors: the application form */
+.form-wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; align-items: start; }
+.form-intro { position: sticky; top: 100px; }
+.form-intro .eyebrow { display: block; }
+.form-intro h1 { font-size: clamp(38px, 5vw, 58px); margin-top: 10px; }
+.form-intro .lede { margin-top: 16px; font-size: 18px; color: var(--muted); max-width: 34ch; }
+.form-art { margin-top: 30px; width: 140px; height: 140px; border-radius: 50%; background: var(--tint); display: grid; place-items: center; }
+.form-art svg { width: 110px; height: 110px; }
+.back { display: block; width: fit-content; margin-bottom: 26px; font-size: 15px; font-weight: 700; color: var(--muted); text-decoration: none; }
+.back:hover { color: var(--rose); }
+.amb-form { display: grid; gap: 18px; padding: 30px; }
+.field { display: grid; gap: 7px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.field > label, .field legend { font-weight: 700; font-size: 15px; padding: 0; }
+.field .opt { font-weight: 500; color: var(--muted); font-size: 13px; margin-left: 4px; }
+.field input:not([type=radio]):not([type=checkbox]), .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line);
+  border-radius: 14px; padding: 12px 14px; min-height: 50px; appearance: none; -webkit-appearance: none; }
+.field textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
+.field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%235F5A57' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 40px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--rose); box-shadow: 0 0 0 3px var(--tint); }
+.prefix { display: flex; align-items: stretch; }
+.prefix span { display: grid; place-items: center; padding: 0 14px; background: var(--sunk); border: 1.5px solid var(--line); border-right: 0; border-radius: 14px 0 0 14px; font-weight: 700; color: var(--muted); }
+.prefix input { border-radius: 0 14px 14px 0 !important; }
+.hint { font-size: 13px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { cursor: pointer; }
+.chips input { position: absolute; opacity: 0; pointer-events: none; }
+.chips span { display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: 999px; background: var(--paper); border: 1.5px solid var(--line); font-weight: 600; font-size: 15px; }
+.chips input:checked + span { background: var(--tint); border-color: var(--rose); color: var(--rose); }
+.chips input:focus-visible + span { outline: 3px solid var(--rose); outline-offset: 2px; }
+.check { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 15px; cursor: pointer; }
+.check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--rose); }
+.check a { color: var(--rose); }
+.ferr, .form-err { color: #B3261E; font-size: 14px; font-weight: 600; }
+.ferr:empty, .form-err:empty { display: none; }
+.field.bad input:not([type=radio]):not([type=checkbox]), .field.bad select { border-color: #B3261E; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.amb-form .btn { justify-self: start; }
+.amb-done { padding: 40px 32px; text-align: center; display: grid; justify-items: center; gap: 14px; }
+.amb-done:focus { outline: none; }
+.done-art { width: 150px; height: 150px; border-radius: 50%; background: var(--tint); display: grid; place-items: center; }
+.done-art svg { width: 120px; height: 120px; }
+.amb-done p { color: var(--muted); max-width: 42ch; }
+@media (max-width: 900px) {
+  .form-wrap { grid-template-columns: 1fr; gap: 28px; }
+  .form-intro { position: static; }
+  .form-art { display: none; }
+  .amb-form { padding: 22px; }
+  .amb-form .btn { justify-self: stretch; }
+}

@@ -189,17 +189,38 @@ p { margin: 0; }
 /* Ambassadors: the programme page */
 .amb-art { display: grid; place-items: center; aspect-ratio: 1; max-width: 440px; width: 100%; margin-inline: auto; border-radius: 50%; background: var(--tint); }
 .amb-art svg { width: 78%; height: auto; }
-.journey { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; counter-reset: none; }
-.jstage { background: var(--paper); border-radius: var(--radius); padding: 22px 20px 24px; display: flex; flex-direction: column; gap: 6px; position: relative; }
-.jstage .jart { height: 120px; display: grid; place-items: end center; margin-bottom: 6px; }
-.jstage .jart svg { width: 120px; height: 120px; }
-.jstage .day { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--rose); }
-.jstage h3 { font-size: 22px; }
-.jstage .when { font-size: 14px; font-weight: 700; color: var(--ink); }
-.jstage p { font-size: 15px; color: var(--muted); }
-.jstage:last-child { background: var(--tint); box-shadow: inset 0 0 0 2px var(--rose); }
-@media (max-width: 1000px) { .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); } .jstage:last-child { grid-column: 1 / -1; } }
-@media (max-width: 560px) { .journey { grid-template-columns: 1fr; } }
+.track { --p: 0; list-style: none; margin: 48px 0 0; padding: 0; position: relative; display: flex; flex-direction: column; gap: 56px; }
+.track::before, .track::after { content: ""; position: absolute; left: 50%; top: 0; width: 4px; margin-left: -2px; border-radius: 4px; }
+.track::before { bottom: 0; background: var(--line); }
+.track::after { height: calc(var(--p) * 100%); background: var(--rose); transition: height .15s linear; }
+.tstage { display: grid; grid-template-columns: minmax(0, 1fr) 88px minmax(0, 1fr); gap: 32px; align-items: center; position: relative; z-index: 1; }
+.tphoto { margin: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 50px -28px rgba(70, 20, 35, .45); }
+.tphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tnode { width: 88px; height: 88px; border-radius: 50%; background: var(--surface); box-shadow: 0 0 0 4px var(--line); display: grid; place-items: center; }
+.tnode svg { width: 70px; height: 70px; }
+.ttext { display: flex; flex-direction: column; gap: 6px; }
+.tstage:nth-child(even) .tphoto { order: 3; }
+.tstage:nth-child(even) .ttext { order: 1; text-align: right; align-items: flex-end; }
+.tstage:nth-child(even) .tnode { order: 2; }
+.ttext .day { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--rose); }
+.ttext h3 { font-size: clamp(24px, 3vw, 32px); }
+.ttext .when { font-size: 15px; font-weight: 700; color: var(--ink); }
+.ttext p { font-size: 16px; color: var(--muted); max-width: 36ch; }
+.tstage .tphoto, .tstage .ttext { opacity: .45; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.tstage .tnode { transition: box-shadow .4s ease, transform .4s ease; }
+.tstage.on .tphoto, .tstage.on .ttext { opacity: 1; transform: none; }
+.tstage.on .tnode { box-shadow: 0 0 0 4px var(--rose); transform: scale(1.06); }
+.tstage:last-child.on .tnode { background: var(--tint); }
+@media (prefers-reduced-motion: reduce) { .tstage .tphoto, .tstage .ttext, .tstage .tnode, .track::after { transition: none; transform: none; } }
+@media (max-width: 760px) {
+  .track { gap: 40px; }
+  .track::before, .track::after { left: 30px; }
+  .tstage { grid-template-columns: 60px minmax(0, 1fr); gap: 8px 16px; align-items: start; }
+  .tnode, .tstage:nth-child(even) .tnode { width: 60px; height: 60px; grid-column: 1; grid-row: 1 / span 2; order: 0; }
+  .tnode svg { width: 46px; height: 46px; }
+  .tphoto, .tstage:nth-child(even) .tphoto { grid-column: 2; grid-row: 1; order: 0; }
+  .ttext, .tstage:nth-child(even) .ttext { grid-column: 2; grid-row: 2; order: 0; text-align: left; align-items: flex-start; }
+}
 .perks { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .perk { background: var(--surface); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 6px; }
 .perk-bud { width: 40px; height: 40px; border-radius: 12px; background: var(--tint); display: grid; place-items: center; margin-bottom: 8px; }

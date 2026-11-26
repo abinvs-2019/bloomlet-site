@@ -293,3 +293,33 @@ p { margin: 0; }
 @keyframes qz-pop { from { transform: scale(.4); } }
 @media (max-width: 860px) { .qz { grid-template-columns: 1fr; padding: 32px 22px; gap: 24px; } .qz-body { min-height: 0; } }
 @media (prefers-reduced-motion: reduce) { .qz-step:not([hidden]), .qz-wait .qz-bud svg, .qz-ok .qz-bud svg { animation: none; } }
+
+/* Ambassador photos (stock for now; swap src for our own) */
+.amb-collage { position: relative; aspect-ratio: 1 / 1.02; max-width: 480px; width: 100%; margin-inline: auto; }
+.amb-collage img { position: absolute; object-fit: cover; border-radius: 26px; box-shadow: 0 24px 50px -24px rgba(70, 20, 35, .45); border: 6px solid var(--surface); }
+.amb-collage .c1 { inset: 4% 14% 18% 0; width: 86%; height: 78%; transform: rotate(-3deg); }
+.amb-collage .c2 { right: 0; top: 0; width: 42%; aspect-ratio: 4 / 5; transform: rotate(5deg); }
+.amb-collage .c3 { right: 6%; bottom: 0; width: 50%; aspect-ratio: 5 / 4; transform: rotate(-2deg); }
+.c-bloom { position: absolute; left: 4%; bottom: 4%; width: 96px; height: 96px; border-radius: 50%; background: var(--tint); display: grid; place-items: center; border: 6px solid var(--surface); }
+.c-bloom svg { width: 78%; height: auto; }
+.amb-strip { overflow: hidden; padding: 8px 0 40px; }
+.amb-track { display: flex; gap: 14px; width: max-content; animation: amb-slide 60s linear infinite; }
+.amb-track img { width: 220px; height: 160px; object-fit: cover; border-radius: 18px; flex: none; }
+.amb-track img:nth-child(even) { height: 190px; align-self: center; }
+@keyframes amb-slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .amb-track { animation: none; } }
+.mosaic { margin-top: 30px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 200px; gap: 14px; }
+.mosaic figure { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; }
+.mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.mosaic figure:hover img { transform: scale(1.04); }
+.mosaic figcaption { position: absolute; left: 12px; bottom: 12px; background: var(--surface); color: var(--ink); font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+.mosaic .m1 { grid-column: span 2; grid-row: span 2; }
+@media (max-width: 760px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; } .mosaic .m1 { grid-row: span 2; } }
+.step-img { width: calc(100% + 52px); max-width: none; margin: -22px -26px 10px; height: 170px; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; display: block; }
+.amb-cta { position: relative; border-radius: 32px; overflow: hidden; min-height: 340px; display: grid; align-items: end; color: #fff; }
+.amb-cta > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.amb-cta::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(134, 32, 63, .1), rgba(134, 32, 63, .88)); }
+.amb-cta > div { position: relative; z-index: 1; padding: 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.amb-cta h2 { color: #fff; }
+.amb-cta .btn { margin-top: 10px; }
+@media (max-width: 520px) { .amb-cta > div { padding: 26px; } .amb-track img { width: 160px; height: 120px; } .amb-track img:nth-child(even) { height: 140px; } .c-bloom { width: 72px; height: 72px; } }
